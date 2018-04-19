@@ -1,0 +1,228 @@
+$FONT_FAMILY: 'Work Sans', sans-serif;
+$TRANSITION: .25s ease all;
+$FAST_TRANSITION: .1s ease all;
+$MENU_BG: rgb(10,10,10);
+$BOX_SHADOW: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+* {
+    font-family: $FONT_FAMILY;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $FONT_FAMILY;
+    background: linear-gradient(
+        rgba(0,0,0,.85),
+        rgba(30,30,30,.85)
+    ),
+    url('/img/bg/mbg1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: rgb(245,245,245);
+    min-height: 100vh;
+}
+
+
+/* HEADER STYLING */
+.header_wrapper {
+    height: 3em;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $MENU_BG;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    box-shadow: $BOX_SHADOW;
+}
+
+.header_sideNav_toggle {
+    width: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: none;
+    transition: $TRANSITION;
+    cursor: pointer;
+}
+
+.header_sideNav_toggle_wrapper {
+    display: block;
+    padding: .2em;
+
+}
+
+/* NAVBAR BURGER STYLING */
+
+.header_sideNav_burger {
+    height: .125em;
+    width: 1.5em;
+    margin: .25em;
+    opacity: 1;
+    background: rgba(255,255,255,.75);
+    border-radius: .25em;
+    position: relative;
+    transition: $TRANSITION;
+    transform: translateZ(0);
+
+    &.active {
+        position: relative;
+
+        &:first-child {
+            margin-top: .25em;
+            transform: rotate(45deg);
+        }
+    
+        &:last-child {
+            transform: rotate(-45deg);
+            margin-top: -.75em;
+        }
+    }
+
+    &.hidden {
+        opacity: 0;
+    }
+}
+
+.header_title {
+    padding: .5em .5em .5em 1em;
+    box-sizing: border-box;
+    flex-grow: 1; 
+}
+
+.header_ver {
+    padding: 1em;
+}
+
+/* OFF CANVAS MENU */
+.offCanvas_wrapper {
+    position: fixed;
+    left: -4em;
+    top: 3em;
+    width: 3em;
+    padding: 0;
+    margin: 0;
+    transition: $TRANSITION;
+    background: $MENU_BG;
+    z-index: 9999;
+    box-shadow: $BOX_SHADOW;
+
+    &.active {
+        left: 0;
+    }
+}
+
+.offCanvas_spreadLayer {
+    width: 3em;
+    flex-direction: row;
+    overflow: hidden;
+    transition: $TRANSITION;
+
+    &.active {
+        width: 14em;
+    }
+}
+
+.offCanvas_spreadLayer_displacement {
+    width: 14em;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(10,10,10,.75);
+    overflow: hidden;
+    transition: $FAST_TRANSITION;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0,0,0,.75);
+    }
+}
+
+.offCanvas_iconBox {
+    height: 3em;
+    width: 3em;
+    box-sizing: border-box;
+    background: $MENU_BG;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.offCanvas_textBox {
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FOOTER STYLING */
+.footer_wrapper {
+    height: 3em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5em;
+    background: linear-gradient(
+        rgba(0,0,0,0),
+        rgba(0,0,0,1)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    color: rgba(200,200,200,.25);
+    font-size: .8em;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.5em;
+
+    a {
+        color: rgba(200,200,200,.3);
+        transition: $FAST_TRANSITION;
+
+        &:hover {
+            color: rgba(255,255,255,.9);
+        }
+    }
+}
+
+
+/* INDIVIDUAL PAGES */
+
+.page_wrapper {
+    height: 100%;
+    position: relative;
+    padding: 6em 4em;
+}
+
+.page_header {
+    text-align: center;
+}
+
+.page_writtenContent {
+    max-width: 600px;
+    margin: 0 auto;
+
+    strong {
+        font-weight: 700;
+    }
+}
