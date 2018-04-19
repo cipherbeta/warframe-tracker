@@ -283,5 +283,36 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background: green;
+}
+
+.event_card {
+    border: 1px solid white;
+    z-index: 10;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 400px;
+    background-size: cover;
+    background-position: center center;
+    padding: 2em 1em;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: .25em;
+    margin-bottom: 2em;
+    text-align: center;
+    cursor: pointer;
+    transition: $TRANSITION;
+    cursor: pointer;
+
+    .event_title {
+        font-size: 1.5em;
+        padding: .25em 2em;
+    }
+
+    .event_date {
+        font-size: .8em;
+        margin-top: -1em;
+    }
 }

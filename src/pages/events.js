@@ -22,12 +22,15 @@ class Events extends Component {
     }
 
     generateEventCards = () => {
-        let eventData = this.state.events.map((item, i)=>{
+        let eventData = this.state.events.reverse().map((item, i)=>{
             let date = DATEFIX(item.Date.$date.$numberLong);
             return(
-                <div key={item._id.$oid}>
-                    {date}
-                </div>
+                <a key={item._id.$oid} href={item.Prop} target="_blank">
+                    <div className="event_card" style={{backgroundImage: `linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.75)),url(${item.ImageUrl})`}}>
+                        <h1 className="event_title">{item.Messages[0].Message}</h1>
+                        <h2 className="event_date">{date}</h2>
+                    </div>
+                </a>
             );
         });
 

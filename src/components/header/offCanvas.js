@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import FontAwesomeIcon from '@fortawesome/fontawesome';
-import faHome from '@fortawesome/fontawesome-free-solid/faHome';
 
 // TODO: Refactor as map function so we can avoid the bloat.
 

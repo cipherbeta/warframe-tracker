@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { DATAURL, DATEFIX } from '../config';
-import moment from 'moment';
 
 class Alerts extends Component {
     state = {
@@ -42,7 +41,6 @@ class Alerts extends Component {
     }
 
     render(){
-        console.log(this.state.alerts);
         return(
             <div className="alert_wrapper">
                 {this.generateAlertCards()}
