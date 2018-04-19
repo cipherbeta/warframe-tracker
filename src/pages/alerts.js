@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { DATAURL } from '../config';
+import { DATAURL, DATEFIX } from '../config';
 import moment from 'moment';
 
 class Alerts extends Component {
@@ -24,13 +24,17 @@ class Alerts extends Component {
 
     generateAlertCards = () => {
         let alertData = this.state.alerts.map((item, i)=>{
-            let timeTillDone = moment().startOf(`${item.Activation.$date.$numberLong}`).fromNow();
+            let timeTillDone = DATEFIX(item.Expiry.$date.$numberLong);
+            let rewards = "test";
             return(
-                <div id={i} className="alert_card">
-                test
-                    {item.MissionInfo.faction}
-                    {timeTillDone}
-                    
+                <div key={i} className="alert_card">
+                    <h1 className="alert_missionType">{item.MissionInfo.missionType.replace("MT_", "")}</h1>
+                    <h2 className="alert_faction">{item.MissionInfo.faction.replace("FC_", "")} {item.MissionInfo.minEnemyLevel} - {item.MissionInfo.maxEnemyLevel}</h2>
+                    <hr/>
+                    <small className="alert_expires">Expires {timeTillDone}</small>
+                    <hr/>
+                    <p className="alert_rewards">{rewards}</p>
+                    <p className="alert_addInfo">click for more information</p>
                 </div>
             );
         });

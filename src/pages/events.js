@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { DATAURL } from '../config';
-import moment from 'moment';
+import { DATAURL, DATEFIX } from '../config';
 
 class Events extends Component {
     state = {
@@ -24,7 +23,7 @@ class Events extends Component {
 
     generateEventCards = () => {
         let eventData = this.state.events.map((item, i)=>{
-            let date = moment.unix(item.Date.$date.$numberLong.substring(0,10)).calendar();
+            let date = DATEFIX(item.Date.$date.$numberLong);
             return(
                 <div key={item._id.$oid}>
                     {date}
