@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { DATAURL, DATEFIX } from '../config';
+import { DATAURL, DATEFIX } from '../../config';
+import {Link} from 'react-router-dom';
 
 class Alerts extends Component {
     state = {
@@ -26,15 +27,17 @@ class Alerts extends Component {
             let timeTillDone = DATEFIX(item.Expiry.$date.$numberLong);
             let rewards = "test";
             return(
-                <div key={i} className="alert_card">
-                    <h1 className="alert_missionType">{item.MissionInfo.missionType.replace("MT_", "")}</h1>
-                    <h2 className="alert_faction">{item.MissionInfo.faction.replace("FC_", "")} {item.MissionInfo.minEnemyLevel} - {item.MissionInfo.maxEnemyLevel}</h2>
-                    <hr/>
-                    <small className="alert_expires">Expires {timeTillDone}</small>
-                    <hr/>
-                    <p className="alert_rewards">{rewards}</p>
-                    <p className="alert_addInfo">click for more information</p>
-                </div>
+                <Link key={i} to={`/alerts/${item._id.$oid}`}>
+                    <div className="alert_card">
+                        <h1 className="alert_missionType">{item.MissionInfo.missionType.replace("MT_", "")}</h1>
+                        <h2 className="alert_faction">{item.MissionInfo.faction.replace("FC_", "")} {item.MissionInfo.minEnemyLevel} - {item.MissionInfo.maxEnemyLevel}</h2>
+                        <hr/>
+                        <small className="alert_expires">Expires {timeTillDone}</small>
+                        <hr/>
+                        <p className="alert_rewards">{rewards}</p>
+                        <p className="alert_addInfo">click for more information</p>
+                    </div>
+                </Link>
             );
         });
         return alertData;
