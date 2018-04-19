@@ -141,13 +141,13 @@ body {
     width: 14em;
     display: flex;
     flex-direction: row;
-    background-color: rgba(10,10,10,.75);
-    overflow: hidden;
+    background-color: rgba(10,10,10,.9);
     transition: $FAST_TRANSITION;
+    overflow: hidden;
     cursor: pointer;
 
     &:hover {
-        background-color: rgba(0,0,0,.75);
+        background-color: rgba(0,0,0,.98);
     }
 }
 
@@ -242,4 +242,14 @@ body {
     height: 400px;
     min-width: 300px;
     max-width: 500px;
+}
+
+/* EVENTS */
+.event_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background: green;
 }
