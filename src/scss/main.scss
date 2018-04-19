@@ -226,3 +226,20 @@ body {
         font-weight: 700;
     }
 }
+
+/* ALERTS */
+.alert_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background: green;
+}
+
+.alert_card {
+    background: red;
+    height: 400px;
+    min-width: 300px;
+    max-width: 500px;
+}

@@ -7,6 +7,9 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.10",
     "@fortawesome/react-fontawesome": "0.0.18",
     "animated": "^0.2.2",
+    "axios": "^0.18.0",
+    "json-server": "^0.12.1",
+    "moment": "^2.22.1",
     "node-sass": "^4.8.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -20,6 +23,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "sass": "node-sass -w src/scss/ -o public/css --output-style compressed"
+    "sass": "node-sass -w src/scss/ -o public/css --output-style compressed",
+    "jsonServ": "json-server --watch src/test.json --port 3001",
+    "dev": "concurrently --kill-others \"npm start\" \"npm run sass\" \"npm run jsonServ\""
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }

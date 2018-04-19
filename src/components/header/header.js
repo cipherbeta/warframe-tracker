@@ -56,7 +56,8 @@ class Header extends Component {
             <OffCanvasMenu
                 isActive={this.state.sideBarActive}
                 hoverActive={this.state.hoverActive}
-                gotHover={this.handleSideNavHover}/>
+                gotHover={this.handleSideNavHover}
+                gotClicked={this.handleSideNavClick}/>
         </div>
         );
     }
